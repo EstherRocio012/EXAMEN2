@@ -191,22 +191,30 @@ export default function EditRestaurantScreen ({ navigation, route }) {
                 label='Shipping costs:'
               />
               {/* Solution discount */}
-              <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 20, marginBottom: 10 }}>
-                <Pressable
-                  onPress={() => {
-                    const newPercentage = values.percentage + 0.5
-                    if (newPercentage < 5) setFieldValue('percentage', newPercentage)
-                  }}>
-                    <MaterialCommunityIcons name={'arrow-up-circle'} color={GlobalStyles.brandSecondaryTap} size={40}/>
-                  </Pressable>
-                  <TextSemiBold>Porcentaje actual: <TextSemiBold textStyle={{ color: GlobalStyles.brandPrimary }}>{values.percentage.toFixed(1)}%</TextSemiBold></TextSemiBold>
-                  <Pressable
-                    onPress={() => {
-                      const newPercentage = values.percentage - 0.5
-                      if (newPercentage > -5) setFieldValue('percentage', newPercentage)
-                    }}>
-                      <MaterialCommunityIcons name={'arrow-down-circle'} color={GlobalStyles.brandSecondaryTap} size={40}/>
-                    </Pressable>
+              <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 20, marginBottom: 10 }} >
+                <Pressable onPress={() => {
+                  const newPercentage = values.percentage + 0.5
+                  if (newPercentage < 5) { setFieldValue('percentage', newPercentage) }
+                }}>
+                  <MaterialCommunityIcons
+                    name={'arrow-up-circle'}
+                    color={GlobalStyles.brandSecondaryTap}
+                    size={40}
+                  />
+                </Pressable>
+
+                <TextSemiBold>Porcentaje actual: <TextSemiBold textStyle={{ color: GlobalStyles.brandPrimary }}>{values.percentage.toFixed(1)}%</TextSemiBold></TextSemiBold> {/* to fixed(1) formatea un número a decimal */}
+
+                <Pressable onPress={() => {
+                  const newPercentage = values.percentage - 0.5
+                  if (newPercentage > -5) { setFieldValue('percentage', newPercentage) }
+                }}>
+                  <MaterialCommunityIcons
+                    name={'arrow-down-circle'}
+                    color={GlobalStyles.brandSecondaryTap}
+                    size={40}
+                  />
+                </Pressable>
               </View>
               <InputItem
                 name='email'

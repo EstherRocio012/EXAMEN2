@@ -51,7 +51,7 @@ const create = async function (req, res) {
 const update = async function (req, res) {
   try {
     // Solution discounts
-    req.body.basePricce = req.body.price
+    req.body.basePrice = req.body.price
     await Product.update(req.body, { where: { id: req.params.productId } })
     const updatedProduct = await Product.findByPk(req.params.productId)
     res.json(updatedProduct)
